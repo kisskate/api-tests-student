@@ -20,3 +20,13 @@ func ContainsAdvertisementByTitle(t *testing.T, items []models.Advertisement, ti
 
 	require.Failf(t, "объявление не найдено", "Ни одно название не содержит %q", title)
 }
+
+func ContainsAdvertisementByID(t *testing.T, items []models.Advertisement, id string) {
+	t.Helper()
+	for _, item := range items {
+		if item.ID == id {
+			return
+		}
+	}
+	require.Failf(t, "объявление не найдено", "В списке нет объявления с ID %q", id)
+}

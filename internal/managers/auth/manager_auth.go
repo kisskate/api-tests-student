@@ -11,7 +11,6 @@ import (
 	"api-tests-template/internal/managers/auth/models"
 )
 
-// Login выполняет авторизацию пользователя и возвращает токен с данными пользователя, ожидает 200
 func Login(t *testing.T, username, password string) models.LoginOkResponse {
 	require.NotEmpty(t, username, "Отсутствует логин пользователя")
 	require.NotEmpty(t, password, "Отсутствует пароль пользователя")

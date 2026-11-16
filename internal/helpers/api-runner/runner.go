@@ -31,7 +31,6 @@ func GetRunner() *ApiTest {
 	return New()
 }
 
-// Auth Установка Bearer token-а для прохождения авторизации на приватные ручки
 func (at *ApiTest) Auth(token string) *ApiTest {
 	at.token = token
 	return at

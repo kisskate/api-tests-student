@@ -36,7 +36,6 @@ func (s *TestSuite) TearDownSuite() {
 	base.TearDownSuite()
 }
 
-// Positive: Проверяем получение собственных объявлений в профиле
 func (s *TestSuite) TestGetMyAdvertisementsPositive() {
 	var advertisementsBody string
 	s.Run("Получаем список собственных объявлений", func() {
@@ -63,7 +62,6 @@ func (s *TestSuite) TestGetMyAdvertisementsPositive() {
 	})
 }
 
-// Negative: Проверяем 401 ошибку при попытке получить собственные объявления без токена
 func (s *TestSuite) TestGetMyAdvertisementsIncorrectToken() {
 	var advertisementsBody string
 	s.Run("Получаем список собственных объявлений с неправильным авторизационным токеном", func() {

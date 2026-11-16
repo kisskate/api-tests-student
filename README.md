@@ -26,12 +26,16 @@
 ```
 TEST_LOGIN=your_login
 TEST_PASSWORD=your_password
+TEST_LOGIN2=second_test_user_login
+TEST_PASSWORD2=second_test_user_password
 ```
+
+Для сценария удаления объявления из чужого избранного нужен второй аккаунт TestBoard. Укажите его учётные данные в `TEST_LOGIN2` и `TEST_PASSWORD2` в локальном `.env.override`. Не добавляйте `.env.override` в Git.
 
 8. Для запуска всех тестов достаточно выполнить команду в корне проекта:
 
 ```bash
-  go test -v ./...
+  go test -p 1 -count=1 -v ./...
 ```
 
 9. Отдельный пакет с тестами можно запустить командой:
@@ -39,6 +43,15 @@ TEST_PASSWORD=your_password
 ```bash
   go test -v ./tests/scenarios/myAdvertisement/
 ```
+
+Новые сценарии лабораторной работы можно запускать отдельно:
+
+```bash
+  go test -v ./tests/scenarios/advertisement/
+  go test -v ./tests/scenarios/favorites/
+```
+
+Тесты создания генерируют фотографию во временной папке и удаляют созданные объявления после выполнения. Для избранного используется существующее чужое объявление из каталога; межаккаунтный тест создаёт объявление первым пользователем, добавляет его в избранное вторым и затем удаляет объявление.
 
 ## Логирование
 
